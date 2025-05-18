@@ -66,7 +66,7 @@ export namespace Types {
 	/**
 	 * The status of a Discord user
 	 */
-	export type DiscordStatus = "online" | "idle" | "dnd" | "offline";
+	export type DiscordStatus = 'online' | 'idle' | 'dnd' | 'offline';
 
 	/**
 	 * The presence of a Discord user
@@ -90,9 +90,9 @@ export namespace Types {
 		track_id: string | null;
 		timestamps: Timestamps;
 		song: string;
-		artist: string;
+		artist: string | null;
 		album_art_url: string | null;
-		album: string;
+		album: string | null;
 	}
 
 	/**
@@ -110,9 +110,17 @@ export namespace Types {
 		username: string;
 		public_flags: number;
 		id: Snowflake;
+		global_name: string | null;
+		/**
+		 * @deprecated Use global_name instead.
+		 */
+		display_name: string | null;
 		discriminator: string;
 		bot: boolean;
-		avatar_decoration: string | null;
+		avatar_decoration_data: {
+			asset: string;
+			sku_id: bigint;
+		} | null;
 		avatar: string | null;
 	}
 
@@ -149,7 +157,8 @@ export namespace Types {
 	 * Information about a Discord party
 	 */
 	export interface Party {
-		id: Snowflake;
+		size: [number, number];
+		id: string;
 	}
 
 	/**
