@@ -81,6 +81,7 @@ export namespace Types {
 		active_on_discord_web: boolean;
 		active_on_discord_mobile: boolean;
 		active_on_discord_desktop: boolean;
+		active_on_discord_embedded: boolean;
 	}
 
 	/**
@@ -110,11 +111,11 @@ export namespace Types {
 		username: string;
 		public_flags: number;
 		id: Snowflake;
-		global_name: string | null;
 		/**
-		 * @deprecated Use global_name instead.
+		 * @deprecated Use {@link global_name user.global_name} instead.
 		 */
 		display_name: string | null;
+		global_name: string | null;
 		discriminator: string;
 		bot: boolean;
 		avatar_decoration_data: {
@@ -122,6 +123,22 @@ export namespace Types {
 			sku_id: bigint;
 		} | null;
 		avatar: string | null;
+		/**
+		 * @deprecated Use {@link primary_guild user.primary_guild} instead.
+		 */
+		clan?: Clan;
+		primary_guild?: Clan;
+		collectibles?: unknown;
+	}
+
+	/**
+	 * Information about a Discord clan
+	 */
+	export interface Clan {
+		tag: string;
+		identity_guild_id: string;
+		badge: string;
+		identity_enabled: boolean;
 	}
 
 	/**
@@ -157,7 +174,7 @@ export namespace Types {
 	 * Information about a Discord party
 	 */
 	export interface Party {
-		size: [number, number];
+		size?: [min: number, max: number];
 		id: string;
 	}
 
@@ -165,9 +182,9 @@ export namespace Types {
 	 * Information about a Discord activity's assets
 	 */
 	export interface Assets {
-		small_text: string;
-		small_image: string;
-		large_text: string;
-		large_image: string;
+		small_text?: string;
+		small_image?: string;
+		large_text?: string;
+		large_image?: string;
 	}
 }
