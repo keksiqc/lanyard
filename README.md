@@ -1,17 +1,17 @@
 # @prequist/lanyard
 
-Lanyard API wrapper & TypeScript definitions
+Lanyard TypeScript definitions & minimal HTTP API wrapper
 
 ## Installation
 
 ```bash
-npm i @prequist/lanyard
+bun i @prequist/lanyard
 ```
 
 ## Usage
 
 ```ts
-import { get } from "@prequist/lanyard";
+import { get } from '@prequist/lanyard';
 
 const data = await get(snowflake);
 
@@ -23,10 +23,10 @@ data.active_on_discord_mobile; // boolean
 All types are exported, and can be found in [`./src/types.ts`](./src/types.ts).
 
 ```ts
-import type { Types } from "@prequist/lanyard";
+import type { Types } from '@prequist/lanyard';
 
 // Example
 export function isOnline(presence: Types.Presence) {
-	return presence === "online" || presence === "idle";
+	return presence === 'online' || presence === 'idle';
 }
 ```
