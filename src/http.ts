@@ -1,4 +1,4 @@
-import { API, type Routes, type Types } from "./types.ts";
+import { API, type Routes, type Types } from './types.ts';
 
 export class LanyardHTTPError extends Error {
 	constructor(
