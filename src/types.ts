@@ -173,8 +173,8 @@ export namespace Types {
 		clan?: Clan;
 		/** The user's primary guild information */
 		primary_guild?: Clan;
-		/** The user's collectibles (unknown structure, may be null) */
-		collectibles?: unknown;
+		/** The user's collectibles, such as nameplates */
+		collectibles?: Collectibles | null;
 	}
 
 	/**
@@ -259,5 +259,33 @@ export namespace Types {
 		large_text?: string;
 		/** Large image for the asset, if any */
 		large_image?: string;
+	}
+
+	/**
+	 * Information about Discord collectibles, such as nameplates.
+	 */
+	export interface Collectibles {
+		/**
+		 * The user's nameplate collectible, which gives a background to the username in the member list.
+		 */
+		nameplate?: NameplateCollectible;
+	}
+
+	export type WellKnownNameplatePalettes = 'berry' | 'violet' | 'cobalt' | 'sky' | 'bubble_gum';
+
+	/**
+	 * Information about a nameplate collectible.
+	 */
+	export interface NameplateCollectible {
+		/** The i18n label for the nameplate */
+		label: string;
+		/** The SKU ID for the nameplate */
+		sku_id: string;
+		/** The asset path for the nameplate */
+		asset: string;
+		/** The expiration date for the nameplate, or null if it does not expire */
+		expires_at: string | null;
+		/** The palette name for the nameplate */
+		palette: WellKnownNameplatePalettes | (string & {});
 	}
 }
