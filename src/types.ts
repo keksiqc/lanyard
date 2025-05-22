@@ -271,7 +271,23 @@ export namespace Types {
 		nameplate?: NameplateCollectible;
 	}
 
-	export type WellKnownNameplatePalettes = 'berry' | 'violet' | 'cobalt' | 'sky' | 'bubble_gum';
+	/**
+	 * The well-known nameplate palettes
+	 *
+	 * These were sourced from the Discord Webpack bundle.
+	 */
+	export enum WellKnownNameplatePalettes {
+		NONE = 'none',
+		CRIMSON = 'crimson',
+		BERRY = 'berry',
+		SKY = 'sky',
+		TEAL = 'teal',
+		FOREST = 'forest',
+		BUBBLE_GUM = 'bubble_gum',
+		VIOLET = 'violet',
+		COBALT = 'cobalt',
+		CLOVER = 'clover',
+	}
 
 	/**
 	 * Information about a nameplate collectible.
