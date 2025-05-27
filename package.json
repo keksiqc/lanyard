@@ -1,6 +1,6 @@
 {
 	"name": "@keksiqc/lanyard",
-	"packageManager": "yarn@4.9.1",
+	"packageManager": "pnpm@10.11.0",
 	"version": "1.1.0",
 	"type": "module",
 	"main": "./dist/index.cjs",
@@ -20,7 +20,7 @@
 	},
 	"scripts": {
 		"build": "tsup src/index.ts --format cjs,esm --dts --minify",
-		"release": "yarn build && yarn npm publish"
+		"release": "pnpm build && pnpm publish"
 	},
 	"devDependencies": {
 		"tsup": "^8.5.0",
